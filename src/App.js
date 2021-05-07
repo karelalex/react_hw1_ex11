@@ -1,5 +1,6 @@
 import {Layout, Row, Col, Button, Typography, Divider} from "antd";
 import {useState} from "react";
+import React from 'react';
 
 function App() {
   const {Content} = Layout
@@ -9,10 +10,10 @@ function App() {
       <Layout>
         <Content style = {{padding: '27px'}}>
             <Row>
-                <Col span={2}>
+                <Col flex={'none'}>
                     <Button type="primary" disabled={lang === 'ru'} onClick={() => setLang('ru')}>Русский</Button>
                 </Col>
-                <Col span={2}>
+                <Col flex={'none'}>
                     <Button type="danger" disabled={lang === 'en'} onClick={() => setLang('en')}>Английский</Button>
                 </Col>
             </Row>

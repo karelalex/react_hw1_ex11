@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import {Layout, Row, Col, Button, Typography, Divider} from "antd";
+import {useState} from "react";
 
 function App() {
+  const {Content} = Layout
+    const {Paragraph} = Typography
+    const [lang, setLang] = useState('ru')
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Layout>
+        <Content style = {{padding: '27px'}}>
+            <Row>
+                <Col span={2}>
+                    <Button type="primary" disabled={lang === 'ru'} onClick={() => setLang('ru')}>Русский</Button>
+                </Col>
+                <Col span={2}>
+                    <Button type="danger" disabled={lang === 'en'} onClick={() => setLang('en')}>Английский</Button>
+                </Col>
+            </Row>
+            <Divider></Divider>
+            <Row>
+                <Col span={1}></Col>
+                <Col span={23}><Paragraph>{lang === 'ru' ? 'Привет мир' : 'Hello World'}</Paragraph></Col>
+            </Row>
+        </Content>
+      </Layout>
   );
 }
 
